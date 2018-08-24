@@ -1,0 +1,22 @@
+<h1>Nossos empregados</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Salário</th>
+        <th>Bônus</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employeeService.employees;let i=index;" [id]="'tr'+i">
+        <!--<td>{{employee.name}}</td>-->
+        <!--<td>{{employee.salary}}</td>-->
+        <td [innerHtml]="employee.name"></td>
+        <!--<td [innerHtml]="employee.salary"-->
+            <!--[style.color]="getSalaryColor(employee)"></td>-->
+        <td [innerHtml]="employee.salary"
+            [ngClass]="{'salary-expensive': employee.salary > 20000, 'salary-cheap': employee.salary < 1000}"></td>
+        <td>{{employee.bonus}}</td>
+    </tr>
+    </tbody>
+</table>
